@@ -5,6 +5,7 @@ font-family: 'Roboto', sans-serif; */
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 li{
     list-style: none;
@@ -155,17 +156,19 @@ a{
 }
 /* portfolio */
 .portfolio{
-    padding: 4em 0;
+    padding: 7em 0;
 }
-.portfolio p{
+.portfolio p, .services p, .testimonials-name{
     font-size: 0.8em;
     font-weight: 700;
     color: #777;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
 }
-.portfolio h2{
-    font-weight: 400;
+.portfolio h2, .services h2{
+    font-weight:400;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 2em;
 }
 .portfolio-item-overlay{
     left: 0;
@@ -214,7 +217,7 @@ a{
 }
 /* Create */
 .create{
-    padding: 4em 0;
+    padding: 7em 0;
 }
 .create-btn{
     font-weight: 500;
@@ -249,6 +252,56 @@ a{
 .downed{
     transform: translateY(50px);
 }
+/* services */
+.services{
+    padding: 7em 0;
+}
+.services-item{
+    margin-top: 1em;
+}
+.service-suptitle{
+    color: #52565e;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.service-btn{
+    border: none;
+    background-color: transparent;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid #999;
+
+    margin-top: 0.5em;
+
+    cursor: pointer;
+}
+.service-name, .testimonials-title{
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+.icon{
+    font-size: 2em;
+}
+/* testimonials */
+.testimonials{
+    padding: 7em 0;
+}
+
+.person-img{
+    width: 60px;
+}
+
+.quote{
+    font-size: 1.25em;
+    font-weight: 300;
+}
+
+.quote-div{
+    padding: 0 1em;
+}
+.interests{
+    padding: 7em 0;
+    margin-bottom: 5em;
+}
 @media (max-width: 1024px) {
     .navigation{
         display: none !important;
@@ -260,5 +313,9 @@ a{
 @media (max-width: 768px) {
     .intro-content-logo{
         font-size: 4em;
+    }
+    .quote-div{
+        margin: 1em 0;
+        padding: 2em!important;
     }
 }
