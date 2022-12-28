@@ -7,6 +7,9 @@ font-family: 'Roboto', sans-serif; */
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+body{
+    overflow-x: hidden !important;
+}
 li{
     list-style: none;
 }
@@ -28,6 +31,10 @@ a{
     right: 0;
     z-index: 0;
 }
+.intro-col{
+    position: relative;
+    z-index: 4;
+}
 .intro-overlay{
     z-index: 1;
     left: 0;
@@ -39,10 +46,12 @@ a{
 }
 .header{
     position: relative;
-    z-index: 3;
+    z-index: 1000;
 }
 .header-logo{
     font-weight: 700;
+}
+.navigation{
 }
 .navigation ul li{
     opacity: .8;
@@ -57,17 +66,60 @@ a{
 .navigation ul li:nth-child(4):after{
     content: '>';
     display: inline-block;
+
     transform: rotate(90deg) translatex(2px);
 
     cursor: pointer;
 }
-.navigation ul li:hover{
+.navigation ul li a{
+    transition: all 300ms;
+}
+.navigation ul li a:hover{
     opacity: 1;
+    color: orange;
+}
+.navigation.active *{
+    color: #000;
+}
+.navigation.active ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1em 0;
+}
+.close-nav{
+    right: 20px;
+    top: 20px;
+    height: 35px;
+    width: 35px;
+
+    z-index: 6;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    cursor: pointer;
+}
+.close-nav::before, .close-nav::after{
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: #000;
+}
+.close-nav::before{
+    transform: rotate(45deg) translateY(1px);
+}
+.close-nav::after{
+    transform: rotate(-45deg) translateY(-1px);
 }
 .toggle-menu{
     display: none;
+
     width: 35px;
     height: 20px;
+
     position: relative;
     z-index: 5;
 
@@ -75,12 +127,14 @@ a{
 }
 .toggle-menu span{
     width: 100%;
-    background-color: #fff;
     height: 2px;
+
+    background-color: #fff;
 }
 .toggle-menu span::before,
 .toggle-menu span::after{
     position: absolute;
+
     content: '';
     background-color: #fff;
     width: 100%;
@@ -117,13 +171,15 @@ a{
 .watch-btn{
     border: none;
     background: none;
+    filter: invert(1);
 }
 .watch-btn::before{
     content: '';
-    border: 1px solid #fff;
-    padding: 5px 15px;
+    border: 1px solid #000;
+    padding: 13px 15px;
     border-radius: 50%;
 }
+
 /* service */
 .service{
     min-height: 500px;
@@ -302,9 +358,77 @@ a{
     padding: 7em 0;
     margin-bottom: 5em;
 }
+/* subscribe */
+.subscribe{
+    padding: 7em 0;
+    background-color: rgb(240, 240, 240);
+}
+.subscribe input{
+    border: 0px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    background-color: transparent; 
+    outline: none;
+}
+/* footer */
+
+.footer{
+    padding: 7em 0;
+}
+.footer span, .copyright{
+    font-weight: 300;
+    font-size: 0.95em;
+    color: #252525;
+    opacity: 0.6;
+
+    cursor: pointer;
+
+    transition: all 300ms;
+}
+.copyright{}
+.footer span:hover{
+    opacity: 1;
+}
+.footer-nav-bold{
+    font-weight: 500;
+
+    font-size: 0.9em;
+
+    color: #252525;
+
+    cursor: pointer;
+}
+
 @media (max-width: 1024px) {
     .navigation{
-        display: none !important;
+        position: fixed;
+    
+        height: 100%;
+        width: 300px;
+        margin-right: -300px;
+        right: 0;
+        bottom: 0;
+        top: 0;
+
+        transition: all 300ms;
+        justify-content: flex-start;
+        align-items: flex-start !important;
+        background-color: #fff;
+        z-index: 1000;
+    
+        color: #000;
+    }
+    .navigation ul{
+        display: flex !important;
+        flex-direction: column;
+        padding-top: 100px;
+        padding-left: 50px;
+    }
+    .navigation.active ul li{
+        align-self: flex-start;
+    }
+    .navigation.active{
+        margin-right: 0px;
+        transition: all 300ms;
     }
     .toggle-menu{
         display: flex;
