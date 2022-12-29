@@ -101,6 +101,11 @@ a{
     justify-content: center;
 
     cursor: pointer;
+
+    display: none;
+}
+.navigation.active .close-nav{
+    display: flex;
 }
 .close-nav::before, .close-nav::after{
     content: '';
